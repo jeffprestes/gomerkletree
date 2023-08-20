@@ -98,6 +98,14 @@ func (tree *MerkleStructure) UpdateLeaf(leafData []byte, index uint64, path []ui
 	return
 }
 
+/*
+TODO: Implement find element method
+https://pkg.go.dev/slices@master#example-BinarySearch
+*/
+func (tree *MerkleStructure) FindItem(leafData []byte) (index uint64) {
+	return
+}
+
 func (tree *MerkleStructure) GenerateProof(index uint64) (path []uint8, siblings []*big.Int, root *big.Int, err error) {
 	if index > tree.LastLeafIndex {
 		err = fmt.Errorf("index higher than elements inserted into tree. Index: %d", index)
