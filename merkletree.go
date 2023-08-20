@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/iden3/go-iden3-crypto/poseidon"
+	"golang.org/x/crypto/blake2b"
 )
 
 type MerkleStructure struct {
@@ -235,4 +236,9 @@ func EncodeToBigInt(data []byte) (encodedData *big.Int) {
 func BigIntFromString(str string) (newint *big.Int) {
 	newint, _ = big.NewInt(0).SetString(str, 10)
 	return
+}
+
+func CreateBlakeHash(byteStr []byte) []byte {
+	hash := blake2b.Sum512(byteStr) // blake2b.Sum2
+	return hash[:]
 }
